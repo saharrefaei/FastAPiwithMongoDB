@@ -1,9 +1,5 @@
-from fastapi import FastAPI , Query , Path
-from enum import Enum
-
+from fastapi import FastAPI
+from routes.CRUD_routes import CRUDs_APPLICATION_ROUTER
 app = FastAPI()
 
- 
-@app.get("/" , description='This is my first get api')
-async def root():
-    return {"hi , you are in the root get / "}
+app.include_router(CRUDs_APPLICATION_ROUTER)
